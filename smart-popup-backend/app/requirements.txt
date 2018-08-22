@@ -1,0 +1,10 @@
+jsonpickle==0.9.6
+pip==9.0.2
+pymongo==3.6.1
+setuptools==28.8.0
+tornado==5.0
+sklearn==0.0
+scipy==1.1.0
+xgboost==0.72.1
+pandas==0.23.3
+pycrypto==2.6.1

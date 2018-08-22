@@ -1,0 +1,2 @@
+from domain.modelFeatures.InitialModelFeatures import InitialModelFeatures
+from domain.modelFeatures.ActivityModelFeatures import ActivityModelFeatures

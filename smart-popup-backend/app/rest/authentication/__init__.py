@@ -1,0 +1,1 @@
+from app.rest.authentication.AuthenticatedHandlerBase import AuthenticatedHandlerBase
