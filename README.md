@@ -22,6 +22,3 @@ App will be available at ``localhost:8888``.
 ### Development
 
 While installing new dependencies, remember to update ``app/requirements.txt`` file.
-
-#### IDE
-PyCharm (https://www.jetbrains.com/pycharm/) will do.
