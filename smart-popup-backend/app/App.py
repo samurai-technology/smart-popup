@@ -5,6 +5,7 @@ import tornado.web
 
 from config import Config
 from dao import DaoLibrary
+from domain import DummyInitialModelTransformer, DummyActivityModelTransformer
 from rest import HandlersLibrary
 from service import ServiceLibrary
 
@@ -23,6 +24,10 @@ if __name__ == "__main__":
     app_dir = os.path.dirname(__file__)
     backend_dir = os.path.abspath(os.path.join(app_dir, os.pardir))
     service_library = ServiceLibrary(dao_library, backend_dir, config)
+
+    transformer_service = service_library.transformer_service
+    transformer_service.set_transformer("INITIAL_DUMMY", DummyInitialModelTransformer())
+    transformer_service.set_transformer("ACTIVITY_DUMMY", DummyActivityModelTransformer())
 
     handlers_library = HandlersLibrary(service_library)
     app = make_app(handlers_library)

@@ -6,3 +6,5 @@ from domain.response import Error
 from domain.response import Token
 from domain.modelsDefinitions import DummyModel
 from domain.clientData import ClientData
+from domain.transformers import DummyInitialModelTransformer
+from domain.transformers import DummyActivityModelTransformer
