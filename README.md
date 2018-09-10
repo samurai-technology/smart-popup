@@ -4,7 +4,7 @@ This is a [Samurai Technology](http://samurai.technology) project.
 
 Contact us at [hi@samurai.technology](mailto:hi@samurai.technology).
 
-![Samurai Technology logo](static/samurai-logo.png)
+![Samurai Technology logo](static/samurai-logo.png =250x250)
 
 ## Smart popup
 
