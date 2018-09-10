@@ -1,8 +1,6 @@
 # Samurai Technology
 
-This is a [Samurai Technology](http://samurai.technology) project.
-
-Contact us at [hi@samurai.technology](mailto:hi@samurai.technology).
+This is a project of [Samurai Technology](http://samurai.technology). Contact us at [hi@samurai.technology](mailto:hi@samurai.technology).
 
 ![Samurai Technology logo](static/samurai-logo.png)
 
@@ -10,7 +8,6 @@ Contact us at [hi@samurai.technology](mailto:hi@samurai.technology).
 
 Smart popup provides an advice whether to show or not a pop-up. The advice is based on ML models trained on website's 
 users activity data (which are not open-sourced).
-
 
 ### Run
 
