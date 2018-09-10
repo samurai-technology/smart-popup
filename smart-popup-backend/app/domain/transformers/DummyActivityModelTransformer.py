@@ -3,9 +3,38 @@ from domain import InitialModelFeatures, ActivityModelFeatures
 
 class DummyActivityModelTransformer:
 
-    def get_model_input(self, impute_dict, initial_data, discrete_data, recorded_events):
-        initial_model_features = InitialModelFeatures(impute_dict, initial_data, discrete_data)
-        initial_model_input = initial_model_features.get_model_input()
-        activity_model_features = ActivityModelFeatures(recorded_events)
-        activity_model_input = activity_model_features.get_model_input()
-        return {**initial_model_input, **activity_model_input}
+    @staticmethod
+    def get_model_input(client_data, body):
+        initial_model_features = DummyActivityModelTransformer.__create_initial_model_features(client_data, body)
+        activity_model_features = DummyActivityModelTransformer.__create_activity_model_features(body)
+        return {
+            **initial_model_features.get_model_input(),
+            **activity_model_features.get_model_input()
+        }
+
+    @staticmethod
+    def get_audit_store_record_input(client_data, body):
+        initial_model_features = DummyActivityModelTransformer.__create_initial_model_features(client_data, body)
+        activity_model_features = DummyActivityModelTransformer.__create_activity_model_features(body)
+        return {
+            **initial_model_features.to_dict(),
+            **activity_model_features.to_dict()
+        }
+
+    @staticmethod
+    def __create_initial_model_features(client_data, body):
+        initial_data = {}
+        required_initial_data_keys = client_data["data"]["initial_data"]
+        for key in required_initial_data_keys:
+            initial_data[key] = body.get(key)
+
+        return InitialModelFeatures(
+            client_data["data"]["impute_dict"],
+            initial_data,
+            client_data["data"]["discrete_data"]
+        )
+
+    @staticmethod
+    def __create_activity_model_features(body):
+        recorded_events = body["recorded_events"]
+        return ActivityModelFeatures(recorded_events)
