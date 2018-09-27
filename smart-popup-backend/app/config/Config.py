@@ -1,10 +1,13 @@
 import configparser
 
+import os
+
 
 class Config:
-    def __init__(self):
+    def __init__(self, context_dir):
         self.config = configparser.ConfigParser()
-        self.config.read("config.ini")
+        config_path = os.path.join(context_dir, "config.ini")
+        self.config.read(config_path)
 
     def get_env(self):
         return self.config["DEFAULT"]["ENV"]

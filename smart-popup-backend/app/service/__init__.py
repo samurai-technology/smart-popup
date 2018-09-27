@@ -1,1 +1,1 @@
-from service.ServiceLibrary import ServiceLibrary
+from app.service.ServiceLibrary import ServiceLibrary

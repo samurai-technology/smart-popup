@@ -1,1 +1,1 @@
-from config.Config import Config
+from app.config.Config import Config

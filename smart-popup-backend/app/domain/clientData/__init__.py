@@ -1,1 +1,1 @@
-from domain.clientData.ClientData import ClientData
+from app.domain.clientData.ClientData import ClientData

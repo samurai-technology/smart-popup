@@ -1,4 +1,4 @@
-from domain import InitialModelFeatures
+from app.domain import InitialModelFeatures
 
 
 class DummyInitialModelTransformer:

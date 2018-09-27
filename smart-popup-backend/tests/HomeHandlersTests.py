@@ -3,19 +3,20 @@ import unittest
 
 from tornado.testing import AsyncHTTPTestCase
 
-from app import App
+import App
 from config import Config
 from dao import DaoLibrary
 from rest import HandlersLibrary
 from service import ServiceLibrary
 
-config = Config()
+context_dir = os.path.dirname(__file__)
+config = Config(context_dir)
 dao_library_for_tests = DaoLibrary(
     config.get_database_host(),
     config.get_database_port(),
     config.get_database_name(),
 )
-service_library_for_tests = ServiceLibrary(dao_library_for_tests, os.path.dirname(__file__), config)
+service_library_for_tests = ServiceLibrary(dao_library_for_tests, context_dir, config)
 handlers_library_for_tests = HandlersLibrary(service_library_for_tests)
 
 

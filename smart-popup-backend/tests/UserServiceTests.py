@@ -5,13 +5,14 @@ from config import Config
 from dao import DaoLibrary
 from service import ServiceLibrary
 
-config = Config()
+context_dir = os.path.dirname(__file__)
+config = Config(context_dir)
 dao_library_for_tests = DaoLibrary(
     config.get_database_host(),
     config.get_database_port(),
     config.get_database_name(),
 )
-service_library_for_tests = ServiceLibrary(dao_library_for_tests, os.path.dirname(__file__), config)
+service_library_for_tests = ServiceLibrary(dao_library_for_tests, context_dir, config)
 user_service = service_library_for_tests.user_service
 
 

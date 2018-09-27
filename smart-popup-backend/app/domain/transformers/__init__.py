@@ -1,3 +1,3 @@
-from domain.transformers.DummyTransformer import DummyTransformer
-from domain.transformers.DummyInitialModelTransformer import DummyInitialModelTransformer
-from domain.transformers.DummyActivityModelTransformer import DummyActivityModelTransformer
+from app.domain.transformers.DummyTransformer import DummyTransformer
+from app.domain.transformers.DummyInitialModelTransformer import DummyInitialModelTransformer
+from app.domain.transformers.DummyActivityModelTransformer import DummyActivityModelTransformer

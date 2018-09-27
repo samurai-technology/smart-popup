@@ -5,20 +5,21 @@ from app.service.EncryptionService import EncryptionService
 from app.service.FileService import FileService
 from config import Config
 
-config = Config()
+context_dir = os.path.dirname(__file__)
+config = Config(context_dir)
 
 
 class EncryptionServiceTestCase(unittest.TestCase):
 
     def test_encryption_decryption(self):
-        encryption_service = EncryptionService(FileService(os.path.dirname(__file__), config))
+        encryption_service = EncryptionService(FileService(context_dir, config))
         message = "Secret Message"
         encrypted = encryption_service.encrypt(message)
         decrypted_bytes = encryption_service.decrypt(encrypted)
         self.assertEqual(message.encode(), decrypted_bytes)
 
     def test_encryption_decryption_to_string(self):
-        encryption_service = EncryptionService(FileService(os.path.dirname(__file__), config))
+        encryption_service = EncryptionService(FileService(context_dir, config))
         message = "Secret Message"
         encrypted = encryption_service.encrypt_to_string(message)
         decrypted = encryption_service.decrypt_to_string(encrypted)

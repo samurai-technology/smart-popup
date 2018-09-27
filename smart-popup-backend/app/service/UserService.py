@@ -1,7 +1,7 @@
 import hashlib
 import uuid
 
-from domain import User
+from app.domain import User
 
 
 class UserService:

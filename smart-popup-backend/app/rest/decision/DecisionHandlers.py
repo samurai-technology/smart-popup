@@ -1,7 +1,7 @@
 import json
 
-from domain import BinaryResponse
-from rest.authentication import AuthenticatedHandlerBase
+from app.domain import BinaryResponse
+from app.rest.authentication import AuthenticatedHandlerBase
 
 
 class DecisionHandlers:

@@ -1,11 +1,13 @@
 import hashlib
+import os
 import unittest
 import uuid
 
 from config import Config
 from dao import DaoLibrary
 
-config = Config()
+context_dir = os.path.dirname(__file__)
+config = Config(context_dir)
 dao_library_for_tests = DaoLibrary(
     config.get_database_host(),
     config.get_database_port(),

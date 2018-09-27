@@ -1,10 +1,10 @@
-from service.AuditService import AuditService
-from service.DecisionService import DecisionService
-from service.EncryptionService import EncryptionService
-from service.FileService import FileService
-from service.ModelService import ModelService
-from service.TransformerService import TransformerService
-from service.UserService import UserService
+from app.service.AuditService import AuditService
+from app.service.DecisionService import DecisionService
+from app.service.EncryptionService import EncryptionService
+from app.service.FileService import FileService
+from app.service.ModelService import ModelService
+from app.service.TransformerService import TransformerService
+from app.service.UserService import UserService
 
 
 class ServiceLibrary:

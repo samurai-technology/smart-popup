@@ -84,7 +84,7 @@ RUN set -ex; \
 
 COPY smart-popup-backend /home/samurai-technology/smart-popup-backend
 
-WORKDIR /home/samurai-technology/smart-popup-backend/app
+WORKDIR /home/samurai-technology/smart-popup-backend
 
 RUN pip install -r requirements.txt
 

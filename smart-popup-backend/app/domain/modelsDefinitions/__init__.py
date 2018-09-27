@@ -1,1 +1,1 @@
-from domain.modelsDefinitions.DummyModel import DummyModel
+from app.domain.modelsDefinitions.DummyModel import DummyModel

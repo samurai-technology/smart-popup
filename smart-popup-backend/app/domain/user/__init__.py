@@ -1,1 +1,1 @@
-from domain.user.User import User
+from app.domain.user.User import User

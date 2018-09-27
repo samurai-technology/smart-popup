@@ -4,7 +4,7 @@ import unittest
 
 from tornado.testing import AsyncHTTPTestCase
 
-from app import App
+import App
 from config import Config
 from dao import DaoLibrary
 from dbPopulator import DBPopulator
@@ -12,14 +12,15 @@ from domain import DummyInitialModelTransformer, DummyActivityModelTransformer
 from rest import HandlersLibrary
 from service import ServiceLibrary
 
-config = Config()
+context_dir = os.path.dirname(__file__)
+config = Config(context_dir)
 dao_library_for_tests = DaoLibrary(
     config.get_database_host(),
     config.get_database_port(),
     config.get_database_name(),
 )
 client_data_dao = dao_library_for_tests.client_data_dao
-service_library_for_tests = ServiceLibrary(dao_library_for_tests, os.path.dirname(__file__), config)
+service_library_for_tests = ServiceLibrary(dao_library_for_tests, context_dir, config)
 user_service = service_library_for_tests.user_service
 transformer_service = service_library_for_tests.transformer_service
 transformer_service.set_transformer("INITIAL_DUMMY", DummyInitialModelTransformer())

@@ -1,8 +1,8 @@
 import pymongo
 
-from dao.UserDao import UserDao
-from dao.AuditDao import AuditDao
-from dao.ClientDataDao import ClientDataDao
+from app.dao.UserDao import UserDao
+from app.dao.AuditDao import AuditDao
+from app.dao.ClientDataDao import ClientDataDao
 
 
 class DaoLibrary:

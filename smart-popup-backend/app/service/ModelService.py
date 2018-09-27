@@ -1,7 +1,7 @@
 import pickle
 
 # This import is needed to correctly unpickle models
-from domain.modelsDefinitions import *
+from app.domain.modelsDefinitions import *
 
 
 class ModelService:

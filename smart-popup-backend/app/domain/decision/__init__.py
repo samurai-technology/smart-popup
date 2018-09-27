@@ -1,1 +1,1 @@
-from domain.decision.BinaryResponse import BinaryResponse
+from app.domain.decision.BinaryResponse import BinaryResponse

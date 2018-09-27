@@ -2,8 +2,8 @@ import json
 
 import tornado.web
 
-from domain import Token
-from domain import Error
+from app.domain import Token
+from app.domain import Error
 
 
 class UserHandlers:
