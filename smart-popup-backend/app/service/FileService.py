@@ -1,4 +1,5 @@
 import os.path
+import pickle
 
 
 class FileService:
@@ -6,14 +7,16 @@ class FileService:
         self.models_dir = os.path.join(context_dir, config.get_models_dir())
         self.security_dir = os.path.join(context_dir, config.get_security_dir())
 
-    def get_initial_model_path(self):
-        initial_model_path = os.path.join(self.models_dir, "randomized_initial.dat")
-        return initial_model_path
-
-    def get_activity_model_path(self):
-        activity_model_path = os.path.join(self.models_dir, "randomized_activity.dat")
-        return activity_model_path
+    def get_models_dir_path(self):
+        return self.models_dir
 
     def get_secret_path(self):
         secret_path = os.path.join(self.security_dir, "secret.txt")
         return secret_path
+
+    @staticmethod
+    def read_binary(path):
+        file = open(path, "rb")
+        content = pickle.load(file)
+        file.close()
+        return content

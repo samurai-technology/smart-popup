@@ -88,4 +88,4 @@ WORKDIR /home/samurai-technology/smart-popup-backend
 
 RUN pip install -r requirements.txt
 
-CMD python3 App.py
+CMD python3 ProdDataPopulator.py && python3 App.py

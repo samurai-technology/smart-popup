@@ -12,7 +12,7 @@ class UserService:
 
     def register_new_user(self, name, password):
         if self.user_dao.exists_with_name(name):
-            raise ValueError("User " + name + " already exists")
+            raise ValueError("User " + str(name) + " already exists")
         salt = self.fresh_salt()
         hashed_password = self.hash_password(salt, password)
         user_id = self.user_dao.add(name, salt, hashed_password)
