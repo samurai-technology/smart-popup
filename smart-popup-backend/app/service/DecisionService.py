@@ -21,4 +21,3 @@ class DecisionService:
         result = predictor.predict(client_data, body, models_registry)
         self.audit_service.store(user_id, predictor.__class__.__name__, body, result)
         return result[0] == 1
-

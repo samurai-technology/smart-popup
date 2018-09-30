@@ -8,7 +8,7 @@ import App
 from config import Config
 from dao import DaoLibrary
 from dbPopulator import DBPopulator
-from domain import DummyInitialModelTransformer, DummyActivityModelTransformer
+from predictors import DummyPredictor
 from rest import HandlersLibrary
 from service import ServiceLibrary
 
@@ -22,9 +22,9 @@ dao_library_for_tests = DaoLibrary(
 client_data_dao = dao_library_for_tests.client_data_dao
 service_library_for_tests = ServiceLibrary(dao_library_for_tests, context_dir, config)
 user_service = service_library_for_tests.user_service
-transformer_service = service_library_for_tests.transformer_service
-transformer_service.set_transformer("INITIAL_DUMMY", DummyInitialModelTransformer())
-transformer_service.set_transformer("ACTIVITY_DUMMY", DummyActivityModelTransformer())
+predictors_registry = service_library_for_tests.predictors_registry
+predictors_registry.set_predictor("predictor_activity", DummyPredictor())
+predictors_registry.set_predictor("predictor_initial", DummyPredictor())
 handlers_library_for_tests = HandlersLibrary(service_library_for_tests)
 
 

@@ -19,15 +19,16 @@ provided for test and tutorial purposes.
 ### Run with custom models
 
 To run Smart Popup with custom models:
-1. Serialize your ``initial`` and ``activity`` models with ``pickle``.
+1. Serialize your models with directory ``pickle``.
 2. Configure path to serialized models in ``App/config.ini`` file (MODELS)
-3. Optional: populate database with custom data, for instance: discrete 
-   values from model's input variable space (e.g. ``device_categories = ["desktop", "mobile", "tablet"]``).
-   See ``tests/dbPopulator/DBPopulator.py`` for an example.
-4. Provide data transformers for each model. Data transformer is a function from data populated in point 3. and request 
-   body into model input. Register data transformers with ``TransformerService`` and use them in ``DecisionService``. 
-   Data transformer should be a pure function. See ``domain/transformers`` for examples.
-
+3. Register deserialized models in *ModelsRegistry* before starting the server.
+4. *Optional*: populate database with custom data (constants), for instance: discrete values from model's input variable 
+   space (e.g. ``device_categories = ["desktop", "mobile", "tablet"]``). See ``tests/dbPopulator/DBPopulator.py`` 
+   for an example. This data can be used while utilizing the models during the request.
+5. Provide predictors for *initial* and *activity* requests. Predictor is a function from data populated in 
+   point 3., request body and *ModelsRegistry* into an advice for the request. Register predictors in ``PredictorsRegistry`` 
+   and use them in ``DecisionService``. ``Predictor.predict(...)`` should be a pure function. See ``predictors`` package 
+   for an example.
 
 ### Run Smart Popup backend
 
@@ -36,7 +37,7 @@ To run Smart Popup with custom models:
 3. Run database: ``./bin/docker-run-database.sh``
 4. Run backend: ``./bin/docker-run-backend.sh``
 
-Backend will be available at ``localhost:8888``.
+Server will be available at ``localhost:8888``.
 
 ### Smart Popup usage
 
