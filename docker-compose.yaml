@@ -6,11 +6,13 @@ volumes:
 services:
   smart-popup-backend:
     build: smart-popup-backend
+    volumes:
+      - ./smart-popup-backend:/home/samurai-technology/smart-popup-backend
     ports:
       - 8888:8888
     depends_on:
-      - mongo
-  mongo:
+      - smart-popup-mongo
+  smart-popup-mongo:
     image: mongo
     ports:
       - 27017:27017
