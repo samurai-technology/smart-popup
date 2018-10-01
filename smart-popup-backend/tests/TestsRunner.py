@@ -7,6 +7,7 @@ from UserDaoTests import UserDaoTests
 from UserHandlersTests import UserHandlersTests
 from UserServiceTests import UserServiceTests
 
+
 if __name__ == '__main__':
     suite = unittest.TestSuite()
     suite.addTests(EncryptionServiceTests().get_suite())
