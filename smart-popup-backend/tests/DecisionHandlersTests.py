@@ -4,7 +4,7 @@ import unittest
 
 from tornado.testing import AsyncHTTPTestCase
 
-import App
+import TestApp
 from config import Config
 from dao import DaoLibrary
 from dbPopulator import DBPopulator
@@ -32,7 +32,7 @@ def clean_db():
     dao_library_for_tests.db.command("dropDatabase")
 
 
-app = App.make_app(handlers_library_for_tests)
+app = TestApp.make_app(handlers_library_for_tests)
 
 
 class TestDecisionHandlersBase(AsyncHTTPTestCase):
