@@ -82,7 +82,7 @@ RUN set -ex; \
 	rm -f get-pip.py; \
 	mkdir smart-popup-backend
 
-COPY smart-popup-backend /home/samurai-technology/smart-popup-backend
+COPY . /home/samurai-technology/smart-popup-backend
 
 WORKDIR /home/samurai-technology/smart-popup-backend
 
